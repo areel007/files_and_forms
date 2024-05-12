@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Working with files and forms</title>
+  </head>
+  <style>
+    form {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 600px;
+      width: 90%;
+    }
+    .form__input {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .form__input label {
+      font-size: 14px;
+    }
+    .form__input input,
+    .form__input select,
+    button {
+      padding: 15px;
+      border-radius: 3px;
+    }
+    .form__input input {
+      border: 1px solid #ababab;
+      font-size: 16px;
+    }
+    .form__input input::placeholder {
+      font-size: 16px;
+      color: #b0aeae;
+    }
+    .phone_number {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 15px;
+      border: 1px solid #ababab;
+      border-radius: 3px;
+    }
+    .phone_number input {
+      border: none;
+      padding: 0;
+      outline: none;
+    }
+    form button {
+      background-color: black;
+      color: white;
+      outline: none;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: white;
+      color: black;
+    }
+  </style>
+  <body>
+    <form action="/" method="post">
+      <div class="form__input">
+        <label for="first_name">First Name</label>
+        <input
+          type="text"
+          placeholder="Jane"
+          name="firstName"
+          id="first_name"
+        />
+      </div>
+
+      <div class="form__input">
+        <label for="last_name">Last Name</label>
+        <input type="text" placeholder="Doe" name="lastName" id="last_name" />
+      </div>
+
+      <div class="form__input">
+        <label for="other_names">Other Names</label>
+        <input
+          type="text"
+          placeholder="Cody"
+          name="otherNames"
+          id="other_names"
+        />
+      </div>
+
+      <div class="form__input">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          placeholder="example@zuri.com"
+          name="email"
+          id="email"
+        />
+      </div>
+
+      <div class="form__input">
+        <label for="phone_number">Phone Number</label>
+        <div class="phone_number">
+          <span>+234</span>
+          <input
+            type="text"
+            placeholder="80XXXXXXXX"
+            name="phoneNumber"
+            id="phone_number"
+          />
+        </div>
+      </div>
+
+      <div class="form__input">
+        <label for="gender">Gender</label>
+        <select name="gender" id="gender">
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector("form").addEventListener("submit", (event) => {
+          this.reset();
+        });
+        const textInputs = document.querySelector("#first_name");
+        textInputs.focus();
+      });
+    </script>
+  </body>
+</html>
