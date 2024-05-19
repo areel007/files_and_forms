@@ -82,10 +82,17 @@ const requestHandler = (req, res) => {
             res.writeHead(500, { "Content-Type": "application/json" });
             res.end(JSON.stringify({ error: "Error saving form data" }));
           } else {
-            res.writeHead(200, { "Content-Type": "application/json" });
-            res.end(
-              JSON.stringify({ message: "Form data submitted successfully" })
-            );
+            fs.readFile("database.json", (err, data) => {
+              if (err) {
+                res.writeHead(500, { "Content-Type": "text/plain" });
+                res.end("Internal Server Error.");
+              } else {
+                res.writeHead(200, { "Content-Type": "text/html" });
+                res.end(`<h1>Here is the content of &quot;database.json&quot; file</h1>
+                ${data}
+                `);
+              }
+            });
           }
         });
       }
