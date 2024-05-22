@@ -14,6 +14,11 @@
       max-width: 600px;
       width: 90%;
     }
+    @media screen and (max-width: 768px) {
+      form {
+        grid-template-columns: 1fr;
+      }
+    }
     .form__input {
       display: flex;
       flex-direction: column;
@@ -66,7 +71,7 @@
     }
   </style>
   <body>
-    <div style="padding: 40px 0 0 40px">
+    <div style="padding: 40px 0 0 40px; width: 100%">
       <a href="https://github.com/areel007/files_and_forms" target="_blank">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
           <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -75,6 +80,7 @@
           />
         </svg>
       </a>
+      <p>Click the above Github icon to see project repo. Cheers!</p>
     </div>
 
     <form action="/" method="post">
